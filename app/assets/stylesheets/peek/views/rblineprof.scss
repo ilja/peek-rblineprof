@@ -1,10 +1,10 @@
 .peek-rblineprof-modal {
-  width: 900px;
+  top: 50px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
   position: absolute;
   z-index: 10000;
-  left: 50%;
-  top: 50px;
-  margin-left: -450px;
 
   pre,
   pre span {
@@ -65,10 +65,12 @@
 
   pre {
     padding: 15px;
+    word-break: normal;
+    word-wrap: normal;
 
     &.duration {
       float: left;
-      width: 230px;
+      width: 250px;
     }
   }
 }
