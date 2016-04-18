@@ -42,15 +42,12 @@ module Peek
 
       def rblineprof_profiler_regex
         escaped_rails_root = Regexp.escape(Rails.root.to_s)
+        # todo: get this working with engines
         case params[:lineprofiler]
         when 'app'
-          %r{^#{escaped_rails_root}/(app|lib)}
-        when 'views'
-          %r{^#{escaped_rails_root}/app/view}
-        when 'gems'
-          %r|^#{escaped_rails_root}/vendor/gems|
-        when 'all'
           %r|^#{escaped_rails_root}|
+        when 'gems'
+          %r|^#{Bundler.bundle_path}|
         when 'stdlib'
           %r|^#{Regexp.escape RbConfig::CONFIG['rubylibdir']}|
         else
